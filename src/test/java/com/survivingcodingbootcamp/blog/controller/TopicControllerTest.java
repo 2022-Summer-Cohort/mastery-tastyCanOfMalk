@@ -34,6 +34,10 @@ public class TopicControllerTest {
 
     }
 
+    public TopicControllerTest(TopicRepository topicRepo) {
+        this.topicRepo = topicRepo;
+    }
+
     @Test
     public void displaySingleTopicShouldReturnSingleTopicTemplateName() {
         String templateName = underTest.displaySingleTopic(1L, model);

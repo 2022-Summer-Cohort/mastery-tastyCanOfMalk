@@ -12,26 +12,69 @@
 
 <body>
 <div class="container">
+
     <header class="header">
         <h1 class="header__title">Surviving Coding Boot Camp</h1>
-        <nav class="header__nav">
-            <div class="header__nav-item"><a href="/" class="header__nav-link">Home</a></div>
-            <div class="header__nav-item"><a href="/hashtags" class="header__nav-link">Hashtags</a></div>
-        </nav>
+        <div th:replace="fragments.html :: header__nav"></div>
     </header>
+
     <main class="main-content">
-        <section class="main-content__topic topic">
-            <h2 th:text="${topic.name}" class="topic__title main-content__title">
-                Topic
-            </h2>
-            <nav class="main-content__nav posts__nav">
-                <div th:each="post: ${topic.posts}">
-                    <a th:text="${post.title}" th:href="'/posts/'+${post.id}" href="#"
-                       class="posts__nav-link"></a>
-                </div>
+        <p class="welcome">Welcome to Surviving Coding Boot Camp, a blog dedicated to helping you get through boot camp and on to the
+            other side.</p>
+        <section class="main-content__topics topics">
+            <h2 th:text="${topic.name}" class="topic__title main-content__title">Topic Name</h2>
+            <nav class="main-content__nav topics__nav">
+                <a th:each="post: ${topic.posts}"
+                   th:text="${post.title}"
+                   th:href="'/posts/'+${post.id}"
+                   href="#"
+                   class="topics__nav-link">
+                </a>
             </nav>
+
+            <h2 class="topics__title main-content__title">Create a new post</h2>
+            <form th:action="'/topics/' + ${topic.id} + '/addPost'" method="post">
+                <br>
+                <label for="author">Author: </label>
+                <br>
+                <textarea type="text"
+                          name="author"
+                          id="author"
+                          rows="1"
+                          cols="50"
+                          placeholder="Author">
+                </textarea>
+                <br>
+
+                <label for="author">Title: </label>
+                <br>
+                <textarea type="text"
+                          name="title"
+                          id="title"
+                          rows="1"
+                          cols="50"
+                          placeholder="Title">
+                </textarea>
+                <br>
+
+                <label for="post">Post: </label>
+                <br>
+                <textarea type="text"
+                        name="post"
+                        id="post"
+                        rows="4"
+                        cols="80"
+                        placeholder="Post">
+                </textarea>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+
+
+
         </section>
     </main>
+
 </div>
 </body>
 

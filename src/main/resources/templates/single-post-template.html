@@ -14,20 +14,36 @@
     <div class="container">
         <header class="header">
             <h1 class="header__title">Surviving Coding Boot Camp</h1>
-            <nav class="header__nav">
-                <div class="header__nav-item"><a href="/" class="header__nav-link">Home</a></div>
-                <div class="header__nav-item"><a href="/hashtags" class="header__nav-link">Hashtags</a></div>
-            </nav>
+            <div th:replace="fragments.html :: header__nav"></div>
         </header>
+
         <main class="main-content">
-            <section class="main-content__post post">
-                <h3 class="post__topic-title main-content__topic-title"><a th:text="${post.topic.name}" th:href="'/topics/'+${post.topic.id}" class="main-content__topic-link post__topic-link">Topic</a>
-                    </h3>
-                <h2 th:text="${post.title}" class="post__title main-content__topic-title">Post Title</h2>
-                <p th:text="${post.content}" class="post__content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque blanditiis, aut quae fuga id quis ut. 
-                    Eligendi necessitatibus blanditiis officia, odio deleniti natus molestiae fugiat ex quod vel aliquam illum.
-                </p>
+            <p class="welcome">Welcome to Surviving Coding Boot Camp, a blog dedicated to helping you get through boot camp and on to the
+                other side.</p>
+            <section class="main-content__topics topics">
+                <h2 class="topics__title main-content__title" th:text="${post.title}">Post Title</h2>
+                <h3 class="topics__title main-content__title" th:text="${post.author}">Post Author</h3>
+                <nav class="main-content__nav topics__nav">
+                    <p th:text="${post.content}">
+                        Post Content
+                    </p>
+                </nav>
+
+                <h2 class="topics__title main-content__title">Assigned Hashtags</h2>
+                <nav class="main-content__nav topics__nav">
+                    <a th:each="hashtag: ${post.hashtags}"
+                       th:text="${hashtag.name}"
+                       th:href="'/hashtags/'+${hashtag.id}"
+                       class="topics__nav-link">
+                        Hashtags
+                    </a>
+                </nav>
+
+                <div th:replace="fragments.html :: hashtagForm"></div>
+
             </section>
+
+
         </main>
     </div>
 
