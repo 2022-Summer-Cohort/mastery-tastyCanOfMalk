@@ -33,43 +33,44 @@
             </nav>
 
             <h2 class="topics__title main-content__title">Create a new post</h2>
-            <form th:action="'/topics/' + ${topic.id} + '/addPost'" method="post">
-                <br>
-                <label for="author">Author: </label>
-                <br>
-                <textarea type="text"
-                          name="author"
-                          id="author"
-                          rows="1"
-                          cols="50"
-                          placeholder="Author">
-                </textarea>
-                <br>
+<!--            <form th:action="'/topics/' + ${topic.id} + '/addPost'" method="post">-->
+<!--                <br>-->
+<!--                <label for="author">Author: </label>-->
+<!--                <br>-->
+<!--                <textarea type="text"-->
+<!--                          name="author"-->
+<!--                          id="author"-->
+<!--                          rows="1"-->
+<!--                          cols="50"-->
+<!--                          placeholder="Author">-->
+<!--                </textarea>-->
+<!--                <br>-->
 
-                <label for="author">Title: </label>
-                <br>
-                <textarea type="text"
-                          name="title"
-                          id="title"
-                          rows="1"
-                          cols="50"
-                          placeholder="Title">
-                </textarea>
-                <br>
+<!--                <label for="author">Title: </label>-->
+<!--                <br>-->
+<!--                <textarea type="text"-->
+<!--                          name="title"-->
+<!--                          id="title"-->
+<!--                          rows="1"-->
+<!--                          cols="50"-->
+<!--                          placeholder="Title">-->
+<!--                </textarea>-->
+<!--                <br>-->
 
-                <label for="post">Post: </label>
-                <br>
-                <textarea type="text"
-                        name="post"
-                        id="post"
-                        rows="4"
-                        cols="80"
-                        placeholder="Post">
-                </textarea>
-                <br>
-                <button type="submit">Submit</button>
-            </form>
+<!--                <label for="post">Post: </label>-->
+<!--                <br>-->
+<!--                <textarea type="text"-->
+<!--                        name="post"-->
+<!--                        id="post"-->
+<!--                        rows="4"-->
+<!--                        cols="80"-->
+<!--                        placeholder="Post">-->
+<!--                </textarea>-->
+<!--                <br>-->
+<!--                <button type="submit">Submit</button>-->
+<!--            </form>-->
 
+            <div th:replace="fragments.html :: topicForm"></div>
 
 
         </section>

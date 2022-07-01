@@ -24,8 +24,39 @@
 <form th:fragment="topicForm"
       th:action="'/topics/' + ${topic.id} + '/addPost'"
       method="post">
-    <label for="hashtagID">Enter hashtag: </label>
-    <input type="text" name="hashtag" id="hashtagID">
+    <br>
+    <label for="author">Author: </label>
+    <br>
+    <textarea type="text"
+              name="author"
+              id="author"
+              rows="1"
+              cols="50"
+              placeholder="Author">
+                </textarea>
+    <br>
+
+    <label for="author">Title: </label>
+    <br>
+    <textarea type="text"
+              name="title"
+              id="title"
+              rows="1"
+              cols="50"
+              placeholder="Title">
+                </textarea>
+    <br>
+
+    <label for="post">Post: </label>
+    <br>
+    <textarea type="text"
+              name="post"
+              id="post"
+              rows="4"
+              cols="80"
+              placeholder="Post">
+                </textarea>
+    <br>
     <button type="submit">Submit</button>
 </form>
 

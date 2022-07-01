@@ -25,10 +25,6 @@ public class PostController {
         this.topicRepo = topicRepo;
     }
 
-//    public PostController(PostRepository postRepo) {
-//        this.postRepo = postRepo;
-//    }
-
     @GetMapping("/{id}")
     public String displaySinglePost(@PathVariable long id, Model model) {
         model.addAttribute("post", postRepo.findById(id).get());

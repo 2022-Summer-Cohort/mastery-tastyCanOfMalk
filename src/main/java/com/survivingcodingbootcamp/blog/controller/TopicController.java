@@ -20,10 +20,6 @@ public class TopicController {
         this.postRepo = postRepo;
     }
 
-//    public TopicController(TopicRepository topicRepo) {
-//        this.topicRepo = topicRepo;
-//    }
-
     @GetMapping("/{id}")
     public String displaySingleTopic(@PathVariable long id, Model model) {
         model.addAttribute("topic", topicRepo.findById(id).get());
@@ -35,7 +31,6 @@ public class TopicController {
         Topic currentTopic = topicRepo.findById(id).get();
         Post newPost = new Post(title, currentTopic, post, author);
         postRepo.save(newPost);
-
         return "redirect:/topics/" + id;
     }
 }
