@@ -2,6 +2,8 @@ package com.survivingcodingbootcamp.blog.controller;
 
 import com.survivingcodingbootcamp.blog.model.Post;
 import com.survivingcodingbootcamp.blog.model.Topic;
+import com.survivingcodingbootcamp.blog.repository.HashtagRepository;
+import com.survivingcodingbootcamp.blog.repository.PostRepository;
 import com.survivingcodingbootcamp.blog.repository.TopicRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,18 +22,19 @@ public class TopicControllerTest {
 
     private TopicController underTest;
     private TopicRepository topicRepo;
+    private PostRepository postRepo;
     private Model model;
     private Topic testTopic;
 
     @BeforeEach
     void setUp() {
+        postRepo = mock(PostRepository.class);
         topicRepo = mock(TopicRepository.class);
-        underTest = new TopicController(topicRepo);
+        underTest = new TopicController(topicRepo, postRepo);
         model = mock(Model.class);
         testTopic = new Topic("Test Topic");
         Optional<Topic> testOptional = Optional.of(testTopic);
         when(topicRepo.findById(1l)).thenReturn(testOptional);
-
     }
 
     @Test

@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
+
     private TopicRepository topicRepo;
 
     public HomeController(TopicRepository topicRepo) {
-
         this.topicRepo = topicRepo;
     }
 

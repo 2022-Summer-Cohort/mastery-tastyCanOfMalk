@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragments</title>
+</head>
+<body>
+
+<nav th:fragment="header__nav">
+        <div class="header__nav-item"><a href="/" class="header__nav-link">Home</a></div>
+        <div class="header__nav-item"><a href="/hashtags" class="header__nav-link">Hashtags</a></div>
+</nav>
+
+<form th:fragment="hashtagForm"
+      th:action="'/posts/' + ${post.id} + '/addHashtag'"
+      method="post">
+    <label for="hashtagID">Enter hashtag: </label>
+    <input type="text" name="hashtag" id="hashtagID">
+    <button type="submit">Submit</button>
+</form>
+
+<form th:fragment="topicForm"
+      th:action="'/topics/' + ${topic.id} + '/addPost'"
+      method="post">
+    <br>
+    <label for="author">Author: </label>
+    <br>
+    <textarea type="text"
+              name="author"
+              id="author"
+              rows="1"
+              cols="50"
+              placeholder="Author">
+                </textarea>
+    <br>
+
+    <label for="author">Title: </label>
+    <br>
+    <textarea type="text"              name="title"
+              id="title"
+              rows="1"
+              cols="50"
+              placeholder="Title">
+                </textarea>
+    <br>
+
+    <label for="post">Post: </label>
+    <br>
+    <textarea type="text"
+              name="post"
+              id="post"
+              rows="4"
+              cols="80"
+              placeholder="Post">
+                </textarea>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+
+
+</body>
+</html>
